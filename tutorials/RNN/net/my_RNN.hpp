@@ -3,15 +3,13 @@
 
 #include "../../../WICWIU_src/NeuralNetwork.hpp"
 
-
-class my_RNN : public NeuralNetwork<float>{
+class my_RNN : public NeuralNetwork<float> {
 private:
 public:
     my_RNN(Tensorholder<float> *x, Tensorholder<float> *label, int vocab_length, int embedding_dim) {
         SetInput(2, x, label);
 
         Operator<float> *out = NULL;
-
 
         //===================== Embedding Layer ==================
         out = new EmbeddingLayer<float>(x, vocab_length, embedding_dim, "Embedding");
